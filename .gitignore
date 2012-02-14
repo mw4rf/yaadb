@@ -1,0 +1,18 @@
+# Credits to : 
+# https://github.com/github/gitignore/blob/master/PlayFramework.gitignore
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+
+# Ignore Play! working directory #
+db
+eclipse
+log
+logs
+precompiled
+tmp
+test-result
+eclipse
+server.pid
+application.conf

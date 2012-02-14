@@ -1,0 +1,12 @@
+html,body {
+    font-family: "Ubuntu mono", monospace;
+    font-size: 0.9em;
+}
+
+#menu {
+    background-color: #e6e6fa;
+    
+    border-radius: 0.3em 0.3em 0.3em 0.3em;
+    
+    padding: 0.3em 1em 0.3em 1em;
+}

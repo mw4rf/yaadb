@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>${play.Play.configuration.get("application.name").toString()}</title>
+		<link>@{Articles.rss}</link>
+		<description>RSS 2.0 Feed</description>
+		<lastBuildDate>${new Date().format("yyyy-mm-DD'T'hh:mm:ssZ")}</lastBuildDate>
+		
+		#{list articles, as:'a'}
+		
+		<item>
+			<title>${a.title}</title>
+			<link><![CDATA[${a.link}]]></link>
+			<guid><![CDATA[${a.link}]]></guid>
+			<pubDate>${a.publishedAt}</pubDate>
+			<description><![CDATA[${a.excerpt.raw()}]]></description>
+		</item>
+		#{/list}
+	</channel>
+</rss>

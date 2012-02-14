@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'Articles Of The Week' /}
+
+<table id="articles_table">
+	<tr>
+		<th></th>
+		<th>Article</th>
+		<th>Source</th>
+		<th>PubDate</th>
+		<th>Mobilization</th>
+	</tr>
+	#{list items:articles, as:'article'}
+		#{include 'Articles/_articleLine.html' /}
+	#{/list}
+</table>
+
+<script type="text/javascript">
+	#{include 'Articles/_ajaxActions.js' /}
+</script>

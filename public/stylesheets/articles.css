@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+#articles_table {
+    width: 100%;
+}
+
+.line {
+	border: 1px solid #e6e6fa;
+}
+
+.line:hover {
+	background-color: #ffffbf;
+}
+
+.cited {
+    background-color: #e6e6e6;
+}
