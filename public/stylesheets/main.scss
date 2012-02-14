@@ -1,0 +1,13 @@
+html,body {
+    font-family: $main-font;
+    font-size: $main-font-size;
+}
+
+#menu {
+    background-color: $bg-color-2;
+    border-radius: $generic-border-radius;
+    padding: 0.3em 1em 0.3em 1em;
+}
+
+@import "articles.scss";
+@import "pagination.scss";

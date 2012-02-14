@@ -4,15 +4,9 @@
     <head>
         <title>#{get 'title' /}</title>
         <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/pagination.css'}">
-        #{if request.controller.equals("Articles")}
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/articles.css'}">
-        #{/if}
-        #{get 'moreStyles' /}
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/themes/default.scss'}">
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
         <link rel="alternate" type="application/rss+xml" title="${play.Play.configuration.get('application.name').toString()}" href="@{Articles.rss()}">
     </head>
     <body>
