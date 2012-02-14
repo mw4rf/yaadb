@@ -1,22 +1,4 @@
 #{extends 'main.html' /}
-#{set title:'Articles List' /}
+#{set title:'Articles' /}
 
-<table id="articles_table">
-	<tr>
-		<th></th>
-		<th>Article</th>
-		<th>Source</th>
-		<th>PubDate</th>
-		<th>Mobilization</th>
-	</tr>
-	#{paginate.list items:articles, as:'article'}
-		#{include 'Articles/_articleLine.html' /}
-	#{/paginate.list}
-</table>
-
-#{paginate.controls items:articles /} 
-#{paginate.summary items:articles /}
-
-<script type="text/javascript">
-	#{include 'Articles/_ajaxActions.js' /}
-</script>
+${count_all} articles, ${count_week} this week.

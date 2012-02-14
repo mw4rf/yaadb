@@ -8,13 +8,16 @@ import play.mvc.*;
 
 import java.util.*;
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import jobs.Updater;
 import models.*;
 
 public class Application extends Controller {
 
     public static void index() {
-    	render();
+    	/** TODO: add some authentication checks here **/
+    	Articles.index();
     }
     
     /**

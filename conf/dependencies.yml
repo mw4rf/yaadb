@@ -3,3 +3,4 @@
 require:
     - play
     - play -> paginate 0.12
+    - play -> sass 1.1
