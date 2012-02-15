@@ -138,4 +138,22 @@ public class Articles extends Controller {
     	render("Articles/_articleLine.html", article);
     }
     
+    /**
+     * Toggle the <i>starred</i> state of the given article.
+     * @param id: the id of the {@link Article} to load.
+     * <b><u>Gives to template:</u></b>
+     * 	- 	{@link Article} object.
+     * <b><u>Rendering:</u></b> AJAX HTML
+     */
+    public static void star(Long id) {
+    	Article article = Article.findById(id);
+    	if(article.starred)
+    		article.starred = false;
+    	else
+    		article.starred = true;
+    	article.updatedAt = new Date();
+    	article.save();
+    	render("Articles/_articleLine.html", article);
+    }
+    
 }

@@ -1,9 +1,18 @@
 <tr class="line #{if article.cited}cited#{/if}">
-	<td>#{if article.cited}
+	<td>
+		*{ ***** Cited/Un-cited ***** }*
+		#{if article.cited}
 			<img action="cite" article="${article.id}" src="/public/images/cited_true.png" />
 		#{/if}#{else}
 			<img action="cite" article="${article.id}" src="/public/images/cited_false.png" />
 		#{/else}
+		*{ ***** Starred/Un-starred ***** }*
+		#{if article.starred}
+			<img action="star" article="${article.id}" src="/public/images/starred_true.png" />
+		#{/if}#{else}
+			<img action="star" article="${article.id}" src="/public/images/starred_false.png" />
+		#{/else}
+	</td>
 	<td><a href="${article.link}" target="_blank">${article.title}</a></td>
 	<td>${article.source}</td>
 	<td>${article.publishedAt.format()}</td>
