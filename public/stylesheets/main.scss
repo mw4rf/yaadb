@@ -5,7 +5,7 @@ html,body {
 }
 
 #menu {
-    background-color: $bg-color-2;
+    background-color: $bg-color-1; /* could be $bg-color-2 here, for an alternative color */
     border-radius: $generic-border-radius;
     padding: 0.3em 1em 0.3em 1em;
     margin-bottom: 0.5em;

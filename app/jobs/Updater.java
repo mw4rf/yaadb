@@ -13,6 +13,7 @@ import com.sun.syndication.io.XmlReader;
 import core.URLReader;
 
 import play.Logger;
+import play.Play;
 import play.cache.Cache;
 import play.jobs.Every;
 import play.jobs.Job;
@@ -36,6 +37,15 @@ public class Updater extends Job {
     	this.uuid = uuid;
     }
 	
+    /**
+     * Job main routine :
+     * 	-	get the feed URL from configuration ;
+     * 	-	loads the URL content and builds the XML feed ;
+     * 	-	for each &lt;item&gt; in this feed, creates a new {@link SyndEntry} object ;
+     * 	-	extracts data from the {@link SyndEntry} object and check if there is a matching {@link Article} in the database ;
+     * 	-	if there's already a matching (URL or title for Tumblr) {@link Article} in the database, skip to next feed entry ;
+     * 	-	if there's no matching {@link Article}, create a new one, mobilize it, and save it in the database. 
+     */
 	@Override
 	public void doJob() throws Exception {
 		try {
@@ -84,6 +94,10 @@ public class Updater extends Job {
     	}
 	}
 	
+	/**
+	 * Appends the given message to the {@link Play} {@link Cache}
+	 * @param message
+	 */
 	private void appendMessage(String message) {
 		try {
 			Cache.set("Job_" + this.uuid + "_message", message + "<br />" + Cache.get("Job_" + this.uuid + "_message").toString());
@@ -92,6 +106,10 @@ public class Updater extends Job {
 		}
 	}
 	
+	/**
+	 * Get the current message from the {@link Play} {@link Cache}
+	 * @return
+	 */
 	public String getMessages() {
 		return Cache.get("Job_" + this.uuid + "_message").toString();
 	}

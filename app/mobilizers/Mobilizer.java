@@ -13,7 +13,7 @@ public class Mobilizer {
 	/**
 	 * Get the mobilized output from the mobilizer engine.
 	 * @param link
-	 * @return
+	 * @return mobilized {@link String}
 	 */
 	public static String mobilize(String link, String mobilizerURL, String mobilizerError) throws MobilizationException {
 		// Get safe URL
