@@ -1,17 +1,102 @@
 @CHARSET "UTF-8";
 
-#articles_table {
-    width: 100%;
+#articles {
+    width: 80%;
+    margin:auto;
 }
 
+/**
+ *   Article line main container
+ */
 .line {
-	border: 1px solid #e6e6fa;
+  margin: 0.7em 0.5em 0.7em 0.5em;
+  padding: 0.5em;
+  
+	border: none;
+	
+	-moz-border-radius: 1.2em;
+  border-radius: 1.2em;
+  
+  -moz-box-shadow: inset 0 0 1em #EBEBEB;
+  -webkit-box-shadow: inset 0 0 1em #EBEBEB;
+  box-shadow: inset 0 0 1em #EBEBEB;
+  
+  /* Background */
+  background: #ffffff;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#EBEBEB"); /* Pour IE seulement et mode gradient à linear */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#EBEBEB));
+  background-image: -moz-linear-gradient(top center, #ffffff, #EBEBEB);
+  background-image: -o-linear-gradient(top, #ffffff, #EBEBEB); /*uniquement en mode linear*/
 }
 
 .line:hover {
 	background-color: #ffffbf;
 }
 
+/**
+ *   Inside article .line div: Article ACTIONS div
+ */
+.line_actions {
+  border-bottom: 2px solid #EBEBEB;
+  border-right: 2px solid #EBEBEB;
+  
+  padding: 0.1em 0.3em 0.1em 0.3em;
+  
+  -moz-border-radius: 1.2em;
+  border-radius: 1.2em;
+  
+  float:left;
+  margin-right: 2em;
+}
+
+/**
+ *   Inside article .line div: Article TITLE div
+ */
+.line_title {
+  float:left;
+  
+  font-size: 1.3em;
+}
+
+/**
+ *   Inside article .line div: Article AUTHOR div
+ */
+.line_source {
+  float:right;
+}
+
+/**
+ *   Inside article .line div: Article PUBLICATION DATE div
+ */
+.line_pubdate {
+  float:right;
+  padding: 0 1em 0 1em;
+}
+
+/**
+ *   Inside article .line div: Article "Mobilized Version" link div
+ */
+.line_mobilized {
+  clear:both;
+}
+
+/**
+ *   Article state: cited
+ * Class applied to <div> .line, Article main container
+ */
 .cited {
-    background-color: #e6e6e6;
+  /* Background */
+  background: #ffffff;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#$color-3"); /* Pour IE seulement et mode gradient à linear */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to($color-3));
+  background-image: -moz-linear-gradient(top center, #ffffff, $color-3);
+  background-image: -o-linear-gradient(top, #ffffff, $color-3); /*uniquement en mode linear*/
+}
+
+/**
+ *   Article state: starred
+ * Class applied to <div> .line, Article main container
+ */
+.starred {
+  border: 2px solid $color-1;
 }

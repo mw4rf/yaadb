@@ -1,18 +1,11 @@
 #{extends 'main.html' /}
 #{set title:'Articles List' /}
 
-<table id="articles_table">
-	<tr>
-		<th></th>
-		<th>Article</th>
-		<th>Source</th>
-		<th>PubDate</th>
-		<th>Mobilization</th>
-	</tr>
+<div id="articles">
 	#{paginate.list items:articles, as:'article'}
 		#{include 'Articles/_articleLine.html' /}
 	#{/paginate.list}
-</table>
+</div>
 
 #{paginate.controls items:articles /} 
 #{paginate.summary items:articles /}
