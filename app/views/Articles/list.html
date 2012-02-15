@@ -7,8 +7,10 @@
 	#{/paginate.list}
 </div>
 
-#{paginate.controls items:articles /} 
-#{paginate.summary items:articles /}
+#{if paginated != null && paginated}
+	#{paginate.controls items:articles /} 
+	#{paginate.summary items:articles /}
+#{/if}
 
 <script type="text/javascript">
 	#{include 'Articles/_ajaxActions.js' /}

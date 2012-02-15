@@ -3,6 +3,7 @@ package models;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,11 +11,14 @@ import javax.persistence.Entity;
 import javax.persistence.Lob;
 
 import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
 
 import mobilizers.GoogleMobilizer;
 import mobilizers.InstapaperMobilizer;
 
 import com.sun.syndication.feed.synd.SyndEntry;
+
+import controllers.Articles;
 
 import play.db.jpa.Model;
 
@@ -112,6 +116,35 @@ public class Article extends Model {
 			fulltext = "";
 			mobilized = false;
 		}
+	}
+	
+	/**
+	 * Returns a {@link List} of cited or un-cited {@link Article} objects.
+	 * @param cited
+	 * @return
+	 */
+	public static List<Article> getCited(boolean cited) {
+		return Article.find("cited = ? order by updatedAt desc", cited).fetch();
+	}
+	
+	/**
+	 * Returns a {@link List} of starred or un-starred {@link Article} objects.
+	 * @param starred
+	 * @return
+	 */
+	public static List<Article> getStarred(boolean starred) {
+		return Article.find("starred = ? order by updatedAt desc", starred).fetch();
+	}
+	
+	/**
+	 * Returns a {@link List} of {@link Article} objects <i>published</i> this week (starting on monday).
+	 * @return
+	 */
+	public static List<Article> getThisWeek() {
+		DateTime now = new DateTime();
+    	DateTime dt = now.minusDays(now.getDayOfWeek() - 1).minusHours(now.getHourOfDay()).minusMinutes(now.getMinuteOfHour());
+    	Date ldate = dt.toDate();
+    	return Article.find("publishedAt > Date(?) order by publishedAt desc", ldate).fetch();
 	}
 	
 }

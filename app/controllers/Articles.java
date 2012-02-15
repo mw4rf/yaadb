@@ -48,8 +48,9 @@ public class Articles extends Controller {
     	// Pagination
     	ModelPaginator articles = new ModelPaginator<Article>(Article.class).orderBy("addedAt desc");
     	articles.setPageSize(Integer.parseInt(play.Play.configuration.get("pagination").toString()));
+    	boolean paginated = true;
     	// render
-        render(articles);
+        render(articles, paginated);
     }
     
     /**
@@ -73,13 +74,35 @@ public class Articles extends Controller {
      * <b><u>Rendering:</u></b> HTML
      */
     public static void week() {
-    	DateTime now = new DateTime();
-    	DateTime dt = now.minusDays(now.getDayOfWeek() - 1).minusHours(now.getHourOfDay()).minusMinutes(now.getMinuteOfHour());
-    	Date ldate = dt.toDate();
-    	//ModelPaginator articles = new ModelPaginator<Article>(Article.class, "publishedAt > Date(?)", ldate).orderBy("addedAt asc");
-    	List<Article> articles = Article.find("publishedAt > Date(?) order by publishedAt desc", ldate).fetch();
-    	render(articles);
+    	List<Article> articles = Article.getThisWeek();
+    	render("Articles/list.html", articles);
     }
+    
+    /**
+     * Show all cited articles.
+     * URL: /articles/cited
+     * <b><u>Gives to template:</u></b>
+     * 	-	{@link List} of {@link Article} objects, sorted by <i>updatedAt</i> desc.
+     * <b><u>Rendering:</u></b> HTML
+     */
+    public static void cited() {
+    	List<Article> articles = Article.getCited(true);
+    	render("Articles/list.html", articles);
+    }
+    
+    /**
+     * Show all starred articles.
+     * URL: /articles/starred
+     * <b><u>Gives to template:</u></b>
+     * 	-	{@link List} of {@link Article} objects, sorted by <i>updatedAt</i> desc.
+     * <b><u>Rendering:</u></b> HTML
+     */
+    public static void starred() {
+    	List<Article> articles = Article.getStarred(true);
+    	render("Articles/list.html", articles);
+    }
+    
+    
     
  //###################################################################################################
  //############## RSS Output
