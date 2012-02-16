@@ -2,6 +2,7 @@ html,body {
     font-family: $main-font;
     font-size: $main-font-size;
     background-color: $bg-color-1;
+    width:100%;
 }
 
 #menu {
@@ -9,10 +10,18 @@ html,body {
     border-radius: $generic-border-radius;
     padding: 0.3em 1em 0.3em 1em;
     margin-bottom: 0.5em;
+    text-align:center;
+}
+
+#pagination {
+  width:80%;
+  margin:auto;
+  text-align:left;
 }
 
 a, a:visited {
   text-decoration: none;
+  color: $link-color;
 }
 
 /** Generic button **/
@@ -30,7 +39,7 @@ a, a:visited {
 }
 
 .push {
-  @include generic-button($color-1, $bg-color-3, $color-2, $color-3, $color-4);
+  @include generic-button($color-1, $bg-color-4, $color-2, $color-3, $color-4);
 }
 
 

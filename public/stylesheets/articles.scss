@@ -17,28 +17,28 @@
 	-moz-border-radius: 1.2em;
   border-radius: 1.2em;
   
-  -moz-box-shadow: inset 0 0 1em #EBEBEB;
-  -webkit-box-shadow: inset 0 0 1em #EBEBEB;
-  box-shadow: inset 0 0 1em #EBEBEB;
+  -moz-box-shadow: inset 0 0 1em $bg-color-2;
+  -webkit-box-shadow: inset 0 0 1em $bg-color-2;
+  box-shadow: inset 0 0 1em $bg-color-2;
   
   /* Background */
-  background: #ffffff;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#EBEBEB"); /* Pour IE seulement et mode gradient à linear */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#EBEBEB));
-  background-image: -moz-linear-gradient(top center, #ffffff, #EBEBEB);
-  background-image: -o-linear-gradient(top, #ffffff, #EBEBEB); /*uniquement en mode linear*/
+  background: $bg-color-1;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="$bg-color-1", endColorstr="$bg-color-2"); /* Pour IE seulement et mode gradient à linear */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($bg-color-1), to($bg-color-2));
+  background-image: -moz-linear-gradient(top center, $bg-color-1, $bg-color-2);
+  background-image: -o-linear-gradient(top, $bg-color-1, $bg-color-2); /*uniquement en mode linear*/
 }
 
 .line:hover {
-	background-color: #ffffbf;
+	background-color: $bg-color-4;
 }
 
 /**
  *   Inside article .line div: Article ACTIONS div
  */
 .line_actions {
-  border-bottom: 2px solid #EBEBEB;
-  border-right: 2px solid #EBEBEB;
+  border-bottom: 2px solid $bg-color-2;
+  border-right: 2px solid $bg-color-2;
   
   padding: 0.1em 0.3em 0.1em 0.3em;
   
@@ -54,8 +54,10 @@
  */
 .line_title {
   float:left;
-  
-  font-size: 1.3em;
+  font-family: $title-font;
+  font-size: $title-font-size;
+  font-weight: $title-font-weight;
+  font-variant: $title-font-variant;
 }
 
 /**
@@ -86,11 +88,11 @@
  */
 .cited {
   /* Background */
-  background: #ffffff;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#$color-3"); /* Pour IE seulement et mode gradient à linear */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to($color-3));
-  background-image: -moz-linear-gradient(top center, #ffffff, $color-3);
-  background-image: -o-linear-gradient(top, #ffffff, $color-3); /*uniquement en mode linear*/
+  background: $bg-color-1;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="$bg-color-1", endColorstr="#$color-3"); /* Pour IE seulement et mode gradient à linear */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($bg-color-1), to($color-3));
+  background-image: -moz-linear-gradient(top center, $bg-color-1, $color-3);
+  background-image: -o-linear-gradient(top, $bg-color-1, $color-3); /*uniquement en mode linear*/
 }
 
 /**

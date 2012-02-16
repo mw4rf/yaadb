@@ -8,8 +8,10 @@
 </div>
 
 #{if paginated != null && paginated}
+<div id="pagination">
 	#{paginate.controls items:articles /} 
 	#{paginate.summary items:articles /}
+</div>
 #{/if}
 
 <script type="text/javascript">

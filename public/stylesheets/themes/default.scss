@@ -1,14 +1,23 @@
-$main-font: "Ubuntu mono", monospace;
-$main-font-size: 0.9em;
+@import url(http://fonts.googleapis.com/css?family=Jura);
+$main-font: "Jura", monospace;
+$main-font-size: 1em;
+
+$title-font: $main-font;
+$title-font-size: 1.2em;
+$title-font-weight: bold;
+$title-font-variant: normal;
 
 $color-1: #8ec1da;
 $color-2: #3985a8;
 $color-3: #cbe6f2;
 $color-4: #8ec1da;
 
-$bg-color-1: #f5f5f2;
-$bg-color-2: #e6e6fa;
-$bg-color-3: #ddeef6;
+$bg-color-1: #ffffff;
+$bg-color-2: #ebebeb;
+$bg-color-3: #ffffbf;
+$bg-color-4: #ddeef6;
+
+$link-color: #0080FF;
 
 $generic-border-radius: 0.3em 0.3em 0.3em 0.3em;
 
