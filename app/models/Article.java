@@ -128,12 +128,28 @@ public class Article extends Model {
 	}
 	
 	/**
+	 * Count {@link Article} objects <b>starred</b>.
+	 * @return
+	 */
+	public static Long countCited() {
+		return Article.count("cited = ?", true);
+	}
+	
+	/**
 	 * Returns a {@link List} of starred or un-starred {@link Article} objects.
 	 * @param starred
 	 * @return
 	 */
 	public static List<Article> getStarred(boolean starred) {
 		return Article.find("starred = ? order by updatedAt desc", starred).fetch();
+	}
+	
+	/**
+	 * Count {@link Article} objects <b>starred</b>.
+	 * @return
+	 */
+	public static Long countStarred() {
+		return Article.count("starred = ?", true);
 	}
 	
 	/**
@@ -145,6 +161,17 @@ public class Article extends Model {
     	DateTime dt = now.minusDays(now.getDayOfWeek() - 1).minusHours(now.getHourOfDay()).minusMinutes(now.getMinuteOfHour());
     	Date ldate = dt.toDate();
     	return Article.find("publishedAt > Date(?) order by publishedAt desc", ldate).fetch();
+	}
+	
+	/**
+	 * Count {@link Article} objects <b>published</b> this week (starting on monday).
+	 * @return
+	 */
+	public static Long countThisWeek() {
+		DateTime now = new DateTime();
+		DateTime dt = now.minusDays(now.getDayOfWeek() - 1).minusHours(now.getHourOfDay()).minusMinutes(now.getMinuteOfHour());
+		Date ldate = dt.toDate();
+		return Article.count("publishedAt > Date(?)", ldate);
 	}
 	
 }

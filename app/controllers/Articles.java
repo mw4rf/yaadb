@@ -26,15 +26,13 @@ public class Articles extends Controller {
 	 * <b><u>Rendering:</u></b> HTML
 	 */
 	public static void index() {
-		// Count all articlintes
+		// Count articles
 		Long count_all = Article.count();
-		// Count articles of the week
-		DateTime now = new DateTime();
-		DateTime dt = now.minusDays(now.getDayOfWeek() - 1).minusHours(now.getHourOfDay()).minusMinutes(now.getMinuteOfHour());
-		Date ldate = dt.toDate();
-		Long count_week = Article.count("publishedAt > Date(?)", ldate);
+		Long count_week = Article.countThisWeek();
+		Long count_cited = Article.countCited();
+		Long count_starred = Article.countStarred();
 		// Render
-		render(count_all, count_week);
+		render(count_all, count_week, count_cited, count_starred);
 	}
 	
 	/**
