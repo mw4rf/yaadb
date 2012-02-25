@@ -6,6 +6,12 @@
 # ~~~~~
 application.name=Yet Another Articles DataBase
 
+# Enable Registration
+# ~~~~~
+# Enable or disable registration of new users.
+# true/false
+enable.registration = true
+
 # Service
 # ~~~~~
 # Can be:

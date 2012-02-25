@@ -3,14 +3,14 @@
 	<p><i>Yet Another Articles DataBase</i></p>
 	<p>
 		<!-- Log in -->
-		#{form @Secure.authenticate()}
-			<input type="text" name="username" id="username" value="${flash.username}" />
-			<input type="password" name="password" id="password" value="" />
-			<input type="hidden" name="remember" id="remember" value="true" />
-			<a class="btn btn-success btn" action="login"><i class="icon-fire icon-white"></i> &{'auth.login'} </a>
-			<!-- Register -->
-			<a class="btn btn-primary btn" action="register"><i class="icon-user icon-white"></i> &{'auth.register'} </a>
-		#{/form}
+		<input type="text" name="username" id="username" value="${flash.username}" />
+		<input type="password" name="password" id="password" value="" />
+		<input type="hidden" name="remember" id="remember" value="true" />
+		<a class="btn btn-success btn" action="login"><i class="icon-fire icon-white"></i> &{'auth.login'} </a>
+		#{if enableRegistration}
+		<!-- Register -->
+		<a class="btn btn-primary btn" action="register"><i class="icon-user icon-white"></i> &{'auth.register'} </a>
+		#{/if}
 	</p>
 </div>
 
@@ -26,6 +26,7 @@
 		})
 	})
 	
+	#{if enableRegistration}
 	var registerAction = #{jsAction @Application.register() /}
 	$('a[action=register]').live('click', function() {
 		var username = $('input[name=username]').val()
@@ -34,5 +35,6 @@
 			location.reload();
 		})
 	})
+	#{/if}
 	
 </script>

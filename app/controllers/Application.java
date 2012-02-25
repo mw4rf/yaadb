@@ -11,7 +11,8 @@ public class Application extends Controller {
 	 * Application home
 	 */
     public static void index() {
-    	render();
+    	boolean enableRegistration = Boolean.parseBoolean(play.Play.configuration.get("enable.registration").toString());
+    	render(enableRegistration);
     }
     
     /**
@@ -77,8 +78,9 @@ public class Application extends Controller {
      * @param password
      */
     public static void register(@Required String username, @Required String password) {
+    	boolean enableRegistration = Boolean.parseBoolean(play.Play.configuration.get("enable.registration").toString());
     	// Validate mandatory fields and check if the user doesn't already exist
-    	if(validation.hasErrors() || User.exists(username)) {
+    	if(!enableRegistration || validation.hasErrors() || User.exists(username)) {
             flash.error("flash.error.register");
             params.flash();
     		index();
