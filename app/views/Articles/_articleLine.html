@@ -1,20 +1,39 @@
-<div class="line #{if article.cited}cited#{/if} #{if article.starred}starred#{/if}">
-	<div class="line_actions">
-		*{ ***** Cited/Un-cited ***** }*
+<div class="row-fluid line">
+	<!-- Cited & Starred -->
+	<div class="span1">
+		*{ ***** Cited ***** }*
 		#{if article.cited}
 			<img action="cite" article="${article.id}" src="/public/images/cited_true.png" />
 		#{/if}#{else}
 			<img action="cite" article="${article.id}" src="/public/images/cited_false.png" />
 		#{/else}
-		*{ ***** Starred/Un-starred ***** }*
+		*{ ***** Starred ***** }*
 		#{if article.starred}
 			<img action="star" article="${article.id}" src="/public/images/starred_true.png" />
 		#{/if}#{else}
 			<img action="star" article="${article.id}" src="/public/images/starred_false.png" />
 		#{/else}
 	</div>
-	<div class="line_title"><a href="${article.link}" target="_blank">${article.title}</a></div>
-	<div class="line_pubdate">${article.publishedAt.format()}</div>
-	<div class="line_source">${article.source}</div>
-	<div class="line_mobilized">#{a @Articles.mobilized(article.id)}Mobilized Version#{/a}</div>
+
+	
+	<!-- Title -->
+	<div class="span7">
+		*{ ***** Mobilized Version ***** }*
+		#{if article.mobilized}
+			<span class="label label-info">#{a @Articles.mobilized(article.id)}&{'article.mobilized'}#{/a}</span>
+		#{/if}
+		*{ ***** Original Version ***** }*
+		<a href="${article.link}" target="_blank">${article.title}</a>
+	</div>
+	
+	<!-- Source -->
+	<div class="span2">
+		<div class="line_source">${article.source}</div>
+	</div>
+	
+	<!-- pubDate -->
+	<div class="span2">
+		<div class="line_pubdate">${article.publishedAt.format()}</div>
+	</div>
+
 </div>

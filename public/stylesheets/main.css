@@ -1,0 +1,14 @@
+body {
+	/** Padding needed so that the body content doesn't go behind the navbar **/
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+/** Change foreground color for links inside labels **/
+.label > a:link, .label > a:hover, .label > a:visited {
+	color: #ffffff;
+}

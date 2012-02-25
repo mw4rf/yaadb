@@ -53,6 +53,7 @@ public class Updater extends Job {
 			url = new URL(play.Play.configuration.get("feedURL").toString());
 			Logger.info("Parser started on " + url.toString());
 			Cache.set("Job_" + this.uuid + "_done", false);
+			Cache.set("Job_" + this.uuid + "_percent", 0);
 			appendMessage("Parser started on " + url.toString());
 			reader = new XmlReader(url);
 			feed = new SyndFeedInput().build(reader);
@@ -71,21 +72,22 @@ public class Updater extends Job {
 		        	test = Article.find("byLink", entry.getLink()).first();
 		        }
 		        if(test != null) {
-		        	//System.out.println("This article has already been saved. Skipped to next article.");
 		        	ignoredItems++;
-		        	appendMessage("Item " + current + "/" + totalItems + " skipped. Article already parsed: <i>" + entry.getTitle() + "</i>");
+		        	appendMessage("<span class=\"label label-default\">" + current + "/" + totalItems + "</span> <span class=\"label label-warning\">Skipped</span> Article already parsed: <i>" + entry.getTitle() + "</i>");
 		        	continue;
 		        }
 		        // Save new article
 		        Article a = new Article(entry).save();
 		        Logger.info("New article parsed : ", entry.getTitle().toString());
-		        appendMessage("Item " + current + "/" + totalItems + " parsed : <b>" + a.title + "</b>");
+		        appendMessage("<span class=\"label label-default\">" + current + "/" + totalItems + "</span> <span class=\"label label-success\">Parsed</span> <b>" + a.title + "</b>");
+		        Cache.set("Job_" + this.uuid + "_percent", (int) current * 100 / totalItems);
 		        parsedItems++;
 		    }
 			reader.close();
 			Logger.info("Parsing finished.");
 			appendMessage("Finished parsing " + totalItems + " items -- " + parsedItems + " parsed, " + ignoredItems + " skipped.");
 			Cache.set("Job_" + this.uuid + "_done", true);
+			Cache.set("Job_" + this.uuid + "_percent", 100);
 		} catch (Exception e) {
 			System.out.println("Could not open feed.");
     	} finally {

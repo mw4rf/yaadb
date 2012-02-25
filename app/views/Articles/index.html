@@ -1,4 +1,8 @@
-#{extends 'main.html' /}
+#{extends 'Articles/template.html' /}
 #{set title:'Articles' /}
 
 ${count_all} articles, ${count_week} this week, ${count_cited} cited, ${count_starred} starred.
+
+<a class="btn-primary btn" href="@{Jobs.update()}">
+	<i class="icon-download-alt icon-white"></i> &{'job.update'}
+</a>

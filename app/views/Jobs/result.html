@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Jobs' /}
+
+<div class="row-fluid">
+	<div class="span3">&nbsp;</div>
+	<div class="span6 progress #{if !done}progress-info progress-striped active#{/if}#{else}progress-success#{/else}">
+		<div class="bar" style="width: ${percent}%;">${percent}%</div>
+	</div>
+	<div class="span3">&nbsp;</div>
+</div>
+
+<div class="row-fluid">
+	<div class="span1">&nbsp;</div>
+	<div class="span10">${message.raw()}</div>
+	<div class="span1">&nbsp;</div>
+</div>
+
+#{if !done}
+	<script>
+		window.setTimeout('location.reload()', 3000); //reloads after 3 second
+	</script>
+#{/if}

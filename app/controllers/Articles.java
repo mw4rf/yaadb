@@ -3,9 +3,6 @@ package controllers;
 import java.util.Date;
 import java.util.List;
 
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-
 import models.Article;
 import play.modules.paginate.ModelPaginator;
 import play.mvc.Controller;

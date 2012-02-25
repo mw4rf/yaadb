@@ -1,7 +1,7 @@
-#{extends 'main.html' /}
+#{extends 'Articles/template.html' /}
 #{set title:'Articles List' /}
 
-<div id="articles">
+<div class="articles">
 	#{paginate.list items:articles, as:'article'}
 		#{include 'Articles/_articleLine.html' /}
 	#{/paginate.list}

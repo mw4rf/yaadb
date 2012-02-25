@@ -1,8 +1,27 @@
-<div id="menu">
-	<span class="push">#{a @Articles.index()}Home#{/a}</span>
-	<span class="push">#{a @Articles.list()}All Articles#{/a}</span>
-	<span class="push">#{a @Articles.week()}Articles Of The Week#{/a}</span>
-	<span class="push">#{a @Articles.cited()}Cited#{/a}</span>
-	<span class="push">#{a @Articles.starred()}Starred#{/a}</span>
-	<span class="push">#{a @Application.update()}Update#{/a}</span>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
+			</a> 
+			
+			<a class="brand" href="#">&{'app.name'}</a>
+			
+			<div class="nav-collapse">
+				<ul class="nav">
+
+					<li #{if request.controller.equals("Application")} class="active"#{/if}>#{a @Application.index()}&{'nav.home'}#{/a}</li>
+					<li #{if request.controller.equals("Articles")} class="active"#{/if}>#{a @Articles.index()}&{'nav.articles'}#{/a}</li>
+					<li><a href="#">Preferences</a></li>
+				</ul>
+				<p class="navbar-text pull-right">
+					Logged in as <a href="#">username</a>
+				</p>
+			</div><!--/.nav-collapse -->
+
+		</div>
+	</div>
 </div>

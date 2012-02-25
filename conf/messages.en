@@ -1,0 +1,42 @@
+app.name = YaaDB
+
+nav.home = Home
+nav.articles = Articles
+
+nav.articles.index = Articles Home
+nav.articles.list = All Articles
+nav.articles.week = Articles Of The Week
+nav.articles.cited = Cited Articles
+nav.articles.starred = Starred Articles
+
+article.mobilized = Mobilized
+
+job.update = Update Articles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
