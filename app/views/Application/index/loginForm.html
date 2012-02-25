@@ -1,0 +1,38 @@
+<div class="hero-unit">
+	<h1>&{'app.name'}</h1>
+	<p><i>Yet Another Articles DataBase</i></p>
+	<p>
+		<!-- Log in -->
+		#{form @Secure.authenticate()}
+			<input type="text" name="username" id="username" value="${flash.username}" />
+			<input type="password" name="password" id="password" value="" />
+			<input type="hidden" name="remember" id="remember" value="true" />
+			<a class="btn btn-success btn" action="login"><i class="icon-fire icon-white"></i> &{'auth.login'} </a>
+			<!-- Register -->
+			<a class="btn btn-primary btn" action="register"><i class="icon-user icon-white"></i> &{'auth.register'} </a>
+		#{/form}
+	</p>
+</div>
+
+<script type="text/javascript">
+	
+	var loginAction = #{jsAction @Application.login() /}
+	$('a[action=login]').live('click', function() {
+		var username = $('input[name=username]').val()
+		var password = $('input[name=password]').val()
+		var remember = $('input[name=remember]').val()
+		$.post(loginAction(), {username:username, password:password, remember:remember}, function(data) {
+			location.reload();
+		})
+	})
+	
+	var registerAction = #{jsAction @Application.register() /}
+	$('a[action=register]').live('click', function() {
+		var username = $('input[name=username]').val()
+		var password = $('input[name=password]').val()
+		$.post(registerAction(), {username:username, password:password}, function(data) {
+			location.reload();
+		})
+	})
+	
+</script>

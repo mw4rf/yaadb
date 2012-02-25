@@ -1,4 +1,9 @@
-#{extends 'main.html' /}
+#{extends 'main.html' /} 
 #{set title:'Home' /}
 
-#{a @Articles.index()}GoTo Articles#{/a}
+#{if controllers.Application.isConnected()}
+	#{include "Application/index/greetings.html" /}
+#{/if}
+#{else}
+	#{include "Application/index/loginForm.html" /}
+#{/else}

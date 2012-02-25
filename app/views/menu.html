@@ -17,9 +17,13 @@
 					<li #{if request.controller.equals("Articles")} class="active"#{/if}>#{a @Articles.index()}<i class="icon-list-alt icon-white"></i> &{'nav.articles'}#{/a}</li>
 					<li><a href="#"><i class="icon-cog icon-white"></i> Preferences</a></li>
 				</ul>
+				
+				#{if controllers.Application.isConnected()}
 				<p class="navbar-text pull-right">
-					Logged in as <a href="#">username</a>
+					Logged in as <a href="#">${controllers.Application.getCurrentUsername()}</a>
+					 | #{a @Application.logout()}&{'auth.logout'}#{/a}
 				</p>
+				#{/if}
 			</div><!--/.nav-collapse -->
 
 		</div>

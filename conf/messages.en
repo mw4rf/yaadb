@@ -1,6 +1,10 @@
 app.name = YaaDB
 app.version = 0.2
 
+auth.register = Register
+auth.login = Log in
+auth.logout = Log out
+
 nav.home = Home
 nav.articles = Articles
 
@@ -14,8 +18,10 @@ article.mobilized = Mobilized
 
 job.update = Update Articles
 
+flash.error.register = Something went wrong ! :'-( 
 
-
+flash.success.register = Welcome, %s! You're now registered.
+flash.success.login = Welcome, <b>%s</b>! You're now logged in.
 
 
 
