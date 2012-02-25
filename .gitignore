@@ -19,3 +19,4 @@ application.conf
 
 # maybe not recommended, but eclipse keeps complaining about a stupid module that won't commit
 modules
+/paginate-0.13
