@@ -9,11 +9,31 @@
 			<div class="well sidebar-nav">
 				<ul class="nav nav-list">
 					<li class="nav-header">&{'nav.articles'}</li>
-					<li #{if request.action.equals("Articles.index")} class="active"#{/if}>#{a @Articles.index()}&{'nav.articles.index'}#{/a}</li>
-					<li #{if request.action.equals("Articles.list")} class="active"#{/if}>#{a @Articles.list()}&{'nav.articles.list'}#{/a}</li>
-					<li #{if request.action.equals("Articles.week")} class="active"#{/if}>#{a @Articles.week()}&{'nav.articles.week'}#{/a}</li>
-					<li #{if request.action.equals("Articles.cited")} class="active"#{/if}>#{a @Articles.cited()}&{'nav.articles.cited'}#{/a}</li>
-					<li #{if request.action.equals("Articles.starred")} class="active"#{/if}>#{a @Articles.starred()}&{'nav.articles.starred'}#{/a}</li>
+					<li #{if request.action.equals("Articles.index")} class="active"#{/if}>
+						#{a @Articles.index()}
+							<i class="icon-home#{if request.action.equals("Articles.index")} icon-white#{/if}"></i> &{'nav.articles.index'}
+						#{/a}
+					</li>
+					<li #{if request.action.equals("Articles.list")} class="active"#{/if}>
+						#{a @Articles.list()}
+							<i class="icon-list-alt#{if request.action.equals("Articles.list")} icon-white#{/if}"></i> &{'nav.articles.list'}
+						#{/a}
+					</li>
+					<li #{if request.action.equals("Articles.week")} class="active"#{/if}>
+						#{a @Articles.week()}
+							<i class="icon-calendar#{if request.action.equals("Articles.week")} icon-white#{/if}"></i> &{'nav.articles.week'}
+						#{/a}
+					</li>
+					<li #{if request.action.equals("Articles.cited")} class="active"#{/if}>
+						#{a @Articles.cited()}
+						<i class="icon-pencil#{if request.action.equals("Articles.cited")} icon-white#{/if}"></i> &{'nav.articles.cited'}
+						#{/a}
+					</li>
+					<li #{if request.action.equals("Articles.starred")} class="active"#{/if}>
+						#{a @Articles.starred()}
+							<i class="icon-star#{if request.action.equals("Articles.starred")} icon-white#{/if}"></i> &{'nav.articles.starred'}
+						#{/a}
+					</li>
 				</ul>
 			</div>
 		</div>

@@ -13,9 +13,9 @@
 			<div class="nav-collapse">
 				<ul class="nav">
 
-					<li #{if request.controller.equals("Application")} class="active"#{/if}>#{a @Application.index()}&{'nav.home'}#{/a}</li>
-					<li #{if request.controller.equals("Articles")} class="active"#{/if}>#{a @Articles.index()}&{'nav.articles'}#{/a}</li>
-					<li><a href="#">Preferences</a></li>
+					<li #{if request.controller.equals("Application")} class="active"#{/if}>#{a @Application.index()}<i class="icon-home icon-white"></i> &{'nav.home'}#{/a}</li>
+					<li #{if request.controller.equals("Articles")} class="active"#{/if}>#{a @Articles.index()}<i class="icon-list-alt icon-white"></i> &{'nav.articles'}#{/a}</li>
+					<li><a href="#"><i class="icon-cog icon-white"></i> Preferences</a></li>
 				</ul>
 				<p class="navbar-text pull-right">
 					Logged in as <a href="#">username</a>
