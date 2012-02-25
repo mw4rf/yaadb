@@ -2,7 +2,7 @@
 <rss version="2.0">
 	<channel>
 		<title>${play.Play.configuration.get("application.name").toString()}</title>
-		<link>@{Articles.rss}</link>
+		<link>${play.Play.configuration.get("application.baseURL").toString()}@{Feeds.articles}</link>
 		<description>RSS 2.0 Feed</description>
 		<lastBuildDate>${new Date().format("yyyy-mm-DD'T'hh:mm:ssZ")}</lastBuildDate>
 		
