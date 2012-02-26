@@ -5,6 +5,9 @@ auth.register = Register
 auth.login = Log in
 auth.logout = Log out
 
+user.login = Login
+user.password = Password
+
 nav.home = Home
 nav.articles = Articles
 

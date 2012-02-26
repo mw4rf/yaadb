@@ -20,7 +20,6 @@ public class Application extends Controller {
      * @return
      */
     public static boolean isConnected() {
-    	System.out.printf("username is %s", getCurrentUsername());
     	if(controllers.Secure.Security.isConnected() && getCurrentUsername() != null)
     		return true;
     	else
@@ -53,7 +52,7 @@ public class Application extends Controller {
     	try {
 			Secure.authenticate(username, password, remember);
     	} catch(Throwable e) {
-    		;
+    		e.printStackTrace();
     	} finally {
     		Controller.redirect("Application.index");
     	}
