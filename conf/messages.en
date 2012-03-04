@@ -4,6 +4,7 @@ app.version = 0.2
 auth.register = Register
 auth.login = Log in
 auth.logout = Log out
+auth.remember = Remember me
 
 user.login = Login
 user.password = Password

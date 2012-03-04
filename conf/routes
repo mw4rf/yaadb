@@ -5,6 +5,11 @@
 # Home page
 GET     /                                       Application.index
 
+# Login & Registration
+POST	/login									Application.login
+POST	/doregister								Application.register
+GET		/register								Application.registerForm
+
 # Feeds
 GET		/articles/rss							Feeds.articles
 

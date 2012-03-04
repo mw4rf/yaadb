@@ -1,93 +1,16 @@
 <div class="hero-unit">
 	<h1>&{'app.name'}</h1>
 	<p><i>Yet Another Articles DataBase</i></p>
-	<p>
+	*{ *** Login *** }*
+	#{form @Application.login()}
 		<!-- Log in -->
-		<input class="withLabel" label="&{'user.login'}" value="&{'user.login'}" type="text" name="username" id="username" />
-		<input class="withLabel" label="&{'user.password'}" value="&{'user.password'}" type="text" name="password" secret="" id="password" />
+		<input placeholder="&{'user.login'}" type="text" name="username" id="username" />
+		<input placeholder="&{'user.password'}" type="password" name="password" />
 		<input type="hidden" name="remember" id="remember" value="true" />
-		<a class="btn btn-success" action="login"><i class="icon-fire icon-white"></i> &{'auth.login'} </a>
-		#{if enableRegistration}
-		<!-- Register -->
-		<a class="btn btn-primary" action="register"><i class="icon-user icon-white"></i> &{'auth.register'} </a>
-		#{/if}
-	</p>
-</div>
-
-<script type="text/javascript">
-	
-	/**
-	* Labels inside input fields
-	* Clear the textfield when it gains focus, if it's not empty
-	**/
-	$('.withLabel').live('focus', function() {
-		var label = $(this).attr("label")
-		if( $(this).val() == label )
-			$(this).val('')
-	})
-
-	/**
-	* Labels inside input fields
-	* Reset the textfield with its label when it looses focus, if it's empty
-	**/
-	$('.withLabel').live('blur', function() {
-		var label = $(this).attr("label")
-		if( $(this).val() == '' )
-			$(this).val(label)			
-	})
-	
-	/**
-	* iOS-life password field
-	* Shows the last character input, replace all previous characters with •
-	**/
-	$("input[name=password]").live('keypress', function(event) {
-		var content = $(this).val()
-		var secret = $(this).attr('secret')
-		$(this).attr('secret', secret + content.charAt(content.length-1))
-		var replacement = ""
-		for(i=content.length;i>1;i--) {
-			replacement += "•"
-		}
-		replacement += content.charAt(content.length-1)
-		$(this).val(replacement)
-	})
-	
-	/**
-	* iOS-life password field
-	* Set the 'secret' attribute of the field when it looses focus.
-	* The password is stored in the 'secret' attribute.
-	**/
-	$("input[name=password]").live('blur', function() {
-		var content = $(this).val()
-		var secret = $(this).attr('secret')
-		$(this).attr('secret', secret + content.charAt(content.length-1))
-	})
-	
-	/**
-	* AJAX submission: LOGIN
-	*/
-	var loginAction = #{jsAction @Application.login() /}
-	$('a[action=login]').live('click', function() {
-		var username = $('input[name=username]').val()
-		var password = $('input[name=password]').attr('secret')
-		var remember = $('input[name=remember]').val()
-		$.post(loginAction(), {username:username, password:password, remember:remember}, function(data) {
-			location.reload();
-		})
-	})
-	
-	/**
-	* AJAX submission: REGISTER
-	*/
+		<button type="submit" class="btn btn-success"><i class="icon-fire icon-white"></i> &{'auth.login'}</button>
+	#{/form}
+	*{ *** Register *** }*
 	#{if enableRegistration}
-	var registerAction = #{jsAction @Application.register() /}
-	$('a[action=register]').live('click', function() {
-		var username = $('input[name=username]').val()
-		var password = $('input[name=password]').attr('secret')
-		$.post(registerAction(), {username:username, password:password}, function(data) {
-			location.reload();
-		})
-	})
+		<a class="btn btn-primary" href="@{Application.registerForm()}"><i class="icon-user icon-white"></i> &{'auth.register'} </a>
 	#{/if}
-	
-</script>
+</div>

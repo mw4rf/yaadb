@@ -1,0 +1,12 @@
+#{extends 'main.html' /} 
+#{set title:'Home' /}
+
+<div class="hero-unit">
+	<h1>&{'app.name'}</h1>
+	<p><i>Yet Another Articles DataBase</i></p>
+	#{form @Application.register()}
+		<input placeholder="&{'user.login'}" type="text" name="username" id="username" />
+		<input placeholder="&{'user.password'}" type="password" name="password" />
+		<button type="submit" class="btn btn-primary"><i class="icon-user icon-white"></i> &{'auth.register'} </button>
+	#{/form}
+</div>

@@ -11,8 +11,8 @@ public class Application extends Controller {
 	 * Application home
 	 */
     public static void index() {
-    	boolean enableRegistration = Boolean.parseBoolean(play.Play.configuration.get("enable.registration").toString());
-    	render(enableRegistration);
+    	boolean enableRegistration = Boolean.parseBoolean(play.Play.configuration.getProperty("enable.registration", "false"));
+    	render("Application/index.html", enableRegistration);
     }
     
     /**
@@ -54,7 +54,7 @@ public class Application extends Controller {
     	} catch(Throwable e) {
     		e.printStackTrace();
     	} finally {
-    		Controller.redirect("Application.index");
+    		index();
     	}
     }
     
@@ -69,6 +69,17 @@ public class Application extends Controller {
 		} finally {
 			Controller.redirect("Application.index");
 		}
+    }
+    
+    /**
+     * Shows the form to register, if registrations are enabled. Otherwise, redirects to index.
+     */
+    public static void registerForm() {
+    	boolean enable = Boolean.parseBoolean(play.Play.configuration.getProperty("enable.registration", "false"));
+    	if(enable)
+    		render("Application/register.html");
+    	else
+    		index();
     }
     
     /**
@@ -92,6 +103,8 @@ public class Application extends Controller {
     	login(username, password, true);
     	// flash
     	flash.success("flash.success.register", username);
+    	// go to index
+    	index();
     }
 
 }
