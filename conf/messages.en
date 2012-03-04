@@ -22,6 +22,7 @@ article.mobilized = Mobilized
 
 job.update = Update Articles
 
+flash.error = Error!
 flash.error.register = Something went wrong ! :'-( 
 
 flash.success.register = Welcome, %s! You're now registered.
